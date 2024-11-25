@@ -14,7 +14,6 @@ function draw(){
  
   moon(100,100,-3,90);
   moon(95,95,5,75);
-  
 
   for(let i = 0; i <225; i++){
     fill(255);
