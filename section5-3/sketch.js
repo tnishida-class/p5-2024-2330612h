@@ -11,7 +11,17 @@ function setup(){
     else{
       console.log(i + "年はうるう年ではありません");
     }
+  
+
+    //let daysInYear
+if(daysInYear(i)){console.log(daysInYear(i))};
   }
+
+  
+let p =dayOfWeek(2024,11,19);
+console.log(dayOfWeekAsString(p));
+
+
 }
 
 function calendar(y, m){
@@ -26,7 +36,7 @@ function isLeapYear(y){
 }
 
 function daysInYear(y){
-  // BLANK[1]
+  return isLeapYear(y)?366:365;
 }
 
 function daysInMonth(y, m){
@@ -49,8 +59,28 @@ function dayOfYear(y, m, d){
   return count + d;
 }
 
-function dayOfWeek(y, m, d){
-  // BLANK[2]
+function dayOfWeek(y, m, d){ //1970/1/1は木曜日
+  let count1 = 0;
+  for(let i = 1970; i < y; i++){
+    count1 += daysInYear(i);
+  }
+  let count2 = 0;
+  for(let i = 1; i < m; i++){
+    count2 += daysInMonth(i);
+  }
+  let count3 = 0;
+  for(let i = 1; i <= d; i++){
+    count3 += 1;
+  }
+  let countsum = count1 + count2 + count3
+  //console.log(countsum);
+
+ let n = (countsum) %7;
+  console.log(n);
+  return n;
+//console.log(dayOfWeekAsString(n));
+ // if( countsum %7-4==0){return 0}
+  //else if (countsum%7-4==1){return 1}
 }
 
 function dayOfWeekAsString(dow){
